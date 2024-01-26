@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd0tlnu4ubwi5"]
+[gd_scene load_steps=5 format=3 uid="uid://cd0tlnu4ubwi5"]
 
 [ext_resource type="Texture2D" uid="uid://dxxlks7igwv03" path="res://assets/background.png" id="1_qk8sv"]
 [ext_resource type="Texture2D" uid="uid://cv0hj46yq4n11" path="res://assets/zoom.png" id="2_odchg"]
 [ext_resource type="Texture2D" uid="uid://ctrmbvea5ycxc" path="res://assets/transparantas.png" id="3_5facd"]
+[ext_resource type="AudioStream" uid="uid://cem7mjdxifp2n" path="res://assets/audio/call.mp3" id="4_r2djk"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -53,3 +54,7 @@ texture_hover = ExtResource("3_5facd")
 texture_focused = ExtResource("3_5facd")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Zoom"]
+stream = ExtResource("4_r2djk")
+volume_db = 14.09
