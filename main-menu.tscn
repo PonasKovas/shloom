@@ -81,4 +81,7 @@ autostart = true
 stream = ExtResource("4_r2djk")
 volume_db = 0.036
 
+[connection signal="pressed" from="Zoom/Join" to="Zoom" method="_on_join"]
+[connection signal="pressed" from="Zoom/Decline" to="Zoom" method="_on_close"]
+[connection signal="pressed" from="Zoom/Close" to="Zoom" method="_on_close"]
 [connection signal="timeout" from="Timer" to="Zoom" method="_on_timer_timeout"]

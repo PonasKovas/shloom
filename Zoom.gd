@@ -14,3 +14,11 @@ func _process(delta):
 func _on_timer_timeout():
 	self.visible = true
 	$"../Zoom#AudioStreamPlayer".playing = true
+
+
+func _on_close():
+	get_tree().quit()
+
+
+func _on_join():
+	pass # Replace with function body.
