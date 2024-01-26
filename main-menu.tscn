@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd0tlnu4ubwi5"]
+[gd_scene load_steps=5 format=3 uid="uid://cd0tlnu4ubwi5"]
 
 [ext_resource type="Texture2D" uid="uid://dxxlks7igwv03" path="res://assets/background.png" id="1_qk8sv"]
 [ext_resource type="Texture2D" uid="uid://cv0hj46yq4n11" path="res://assets/zoom.png" id="2_odchg"]
 [ext_resource type="Texture2D" uid="uid://ctrmbvea5ycxc" path="res://assets/transparantas.png" id="3_5facd"]
+[ext_resource type="Script" path="res://Zoom.gd" id="3_b0h4m"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -17,11 +18,13 @@ position = Vector2(576, 323.782)
 scale = Vector2(0.598958, 0.683335)
 texture = ExtResource("1_qk8sv")
 
-[node name="Zoom" type="Sprite2D" parent="."]
+[node name="s" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(606, 313)
 texture = ExtResource("2_odchg")
+script = ExtResource("3_b0h4m")
 
-[node name="Join" type="TextureButton" parent="Zoom"]
+[node name="Join" type="TextureButton" parent="s"]
 offset_left = -222.0
 offset_top = 93.0
 offset_right = -9.0
@@ -32,7 +35,7 @@ texture_focused = ExtResource("3_5facd")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Decline" type="TextureButton" parent="Zoom"]
+[node name="Decline" type="TextureButton" parent="s"]
 offset_left = 12.0
 offset_top = 93.0
 offset_right = 224.0
@@ -43,7 +46,7 @@ texture_focused = ExtResource("3_5facd")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Close" type="TextureButton" parent="Zoom"]
+[node name="Close" type="TextureButton" parent="s"]
 offset_left = 213.0
 offset_top = -147.0
 offset_right = 247.0
@@ -53,3 +56,10 @@ texture_hover = ExtResource("3_5facd")
 texture_focused = ExtResource("3_5facd")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="s" method="_on_timer_timeout"]
