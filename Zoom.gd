@@ -17,7 +17,9 @@ func _on_timer_timeout():
 
 
 func _on_close():
-	get_tree().quit()
+	self.visible = false
+	$"../Zoom#AudioStreamPlayer".playing = false
+	$"../Timer".start()
 
 
 func _on_join():
