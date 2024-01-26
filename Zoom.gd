@@ -13,3 +13,4 @@ func _process(delta):
 
 func _on_timer_timeout():
 	self.visible = true
+	$"../Zoom#AudioStreamPlayer".playing = true

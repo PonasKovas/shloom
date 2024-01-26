@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd0tlnu4ubwi5"]
+[gd_scene load_steps=6 format=3 uid="uid://cd0tlnu4ubwi5"]
 
 [ext_resource type="Texture2D" uid="uid://dxxlks7igwv03" path="res://assets/background.png" id="1_qk8sv"]
 [ext_resource type="Texture2D" uid="uid://cv0hj46yq4n11" path="res://assets/zoom.png" id="2_odchg"]
@@ -63,8 +63,8 @@ wait_time = 1.5
 one_shot = true
 autostart = true
 
-[connection signal="timeout" from="Timer" to="s" method="_on_timer_timeout"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Zoom"]
+[node name="Zoom#AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_r2djk")
-volume_db = 14.09
+volume_db = 0.036
+
+[connection signal="timeout" from="Timer" to="s" method="_on_timer_timeout"]
