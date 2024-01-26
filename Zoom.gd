@@ -19,8 +19,8 @@ func _on_timer_timeout():
 func _on_close():
 	self.visible = false
 	$"../Zoom#AudioStreamPlayer".playing = false
-	$"../Timer".start()
+	$"../Timer".start(2)
 
 
 func _on_join():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://meeting.tscn")
