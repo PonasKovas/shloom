@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://8w3nnqqoj1et"]
+
+[ext_resource type="Texture2D" uid="uid://dxxlks7igwv03" path="res://assets/background.png" id="1_03qdy"]
+[ext_resource type="Texture2D" uid="uid://bcwfnt4fglbio" path="res://assets/kicked.png" id="2_0ej17"]
+[ext_resource type="AudioStream" uid="uid://b81chyi0do3b1" path="res://assets/audio/ismetimo_garsas.mp3" id="3_kigsp"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("1_03qdy")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 212.0
+offset_right = 828.0
+offset_bottom = 415.0
+texture = ExtResource("2_0ej17")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kigsp")
+autoplay = true

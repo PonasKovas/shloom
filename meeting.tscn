@@ -1,23 +1,30 @@
-[gd_scene load_steps=19 format=3 uid="uid://bevdcie86g5m0"]
+[gd_scene load_steps=21 format=3 uid="uid://bevdcie86g5m0"]
 
 [ext_resource type="Texture2D" uid="uid://dxxlks7igwv03" path="res://assets/background.png" id="1_7j8kd"]
 [ext_resource type="Script" path="res://meeting.gd" id="1_p0ohx"]
 [ext_resource type="Texture2D" uid="uid://dg33mlr4exdfi" path="res://assets/zoom_meeting.png" id="2_0w4lm"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokytoja/neutral.ogv" id="3_k51jr"]
-[ext_resource type="VideoStream" path="res://assets/videos/mokytoja/tvarkosi.ogv" id="4_5isvd"]
 [ext_resource type="Texture2D" uid="uid://cfjq7qw8judik" path="res://assets/talking.png" id="4_47fbq"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/0/neutral.ogv" id="4_jx5gl"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/8/neutral.ogv" id="5_467jc"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/1/neutral.ogv" id="5_k3mgb"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/2/neutral.ogv" id="6_qrcsd"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/7/neutral.ogv" id="7_456hy"]
-[ext_resource type="VideoStream" path="res://assets/videos/mokiniai/4/laugh2.ogv" id="9_aeltc"]
+[ext_resource type="Script" path="res://npc_mokinys.gd" id="8_dc3hs"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/6/neutral.ogv" id="9_deuln"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/3/neutral.ogv" id="10_buu6g"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/5/neutral.ogv" id="11_rnqfk"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/4/neutral.ogv" id="12_ivpp6"]
 [ext_resource type="Texture2D" uid="uid://gfryrcr78pmr" path="res://assets/gradient.png" id="16_fsxkf"]
 [ext_resource type="AudioStream" uid="uid://cgr01movpi3yf" path="res://assets/audio/krapstosi_su_mic.mp3" id="18_4s00e"]
+[ext_resource type="FontFile" uid="uid://bo1phohtumt3q" path="res://assets/windows-xp-tahoma.otf" id="19_fq7rp"]
+[ext_resource type="Script" path="res://pagarbostaskai.gd" id="20_8hqad"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ai7v"]
+font = ExtResource("19_fq7rp")
+font_size = 153
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Meeting" type="Control"]
 layout_mode = 3
@@ -98,12 +105,12 @@ columns = 4
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-stream = ExtResource("4_5isvd")
 autoplay = true
 expand = true
 loop = true
 
 [node name="ColorRect" type="ColorRect" parent="Zoom/GridContainer/petriukas"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 83.0
 offset_right = 45.0
@@ -136,10 +143,10 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-stream = ExtResource("5_467jc")
+stream = ExtResource("4_jx5gl")
 autoplay = true
 expand = true
-loop = true
+script = ExtResource("8_dc3hs")
 
 [node name="2" type="VideoStreamPlayer" parent="Zoom/GridContainer"]
 layout_mode = 2
@@ -148,31 +155,30 @@ size_flags_vertical = 3
 stream = ExtResource("5_k3mgb")
 autoplay = true
 expand = true
-loop = true
+script = ExtResource("8_dc3hs")
 
 [node name="3" type="VideoStreamPlayer" parent="Zoom/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-stream = ExtResource("7_456hy")
-autoplay = true
-expand = true
-loop = true
-
-[node name="4" type="VideoStreamPlayer" parent="Zoom/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stream = ExtResource("6_qrcsd")
 autoplay = true
 expand = true
-loop = true
+script = ExtResource("8_dc3hs")
+
+[node name="4" type="VideoStreamPlayer" parent="Zoom/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stream = ExtResource("10_buu6g")
+autoplay = true
+expand = true
+script = ExtResource("8_dc3hs")
 
 [node name="jonukas" type="VideoStreamPlayer" parent="Zoom/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-stream = ExtResource("9_aeltc")
 autoplay = true
 expand = true
 loop = true
@@ -191,46 +197,56 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-stream = ExtResource("9_deuln")
+stream = ExtResource("12_ivpp6")
 autoplay = true
 expand = true
-loop = true
+script = ExtResource("8_dc3hs")
+
+[node name="ACTIVATED" type="TextureRect" parent="Zoom/GridContainer/5"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.939987
+texture = ExtResource("4_47fbq")
+expand_mode = 1
 
 [node name="6" type="VideoStreamPlayer" parent="Zoom/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-stream = ExtResource("10_buu6g")
-autoplay = true
-expand = true
-loop = true
-
-[node name="7" type="VideoStreamPlayer" parent="Zoom/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stream = ExtResource("11_rnqfk")
 autoplay = true
 expand = true
-loop = true
+script = ExtResource("8_dc3hs")
+
+[node name="7" type="VideoStreamPlayer" parent="Zoom/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stream = ExtResource("9_deuln")
+autoplay = true
+expand = true
+script = ExtResource("8_dc3hs")
 
 [node name="8" type="VideoStreamPlayer" parent="Zoom/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-stream = ExtResource("12_ivpp6")
+stream = ExtResource("7_456hy")
 autoplay = true
 expand = true
-loop = true
+script = ExtResource("8_dc3hs")
 
 [node name="9" type="VideoStreamPlayer" parent="Zoom/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-stream = ExtResource("4_jx5gl")
+stream = ExtResource("5_467jc")
 autoplay = true
 expand = true
-loop = true
+script = ExtResource("8_dc3hs")
 
 [node name="choices" type="TextureRect" parent="."]
 layout_mode = 1
@@ -283,6 +299,28 @@ autostart = true
 stream = ExtResource("18_4s00e")
 autoplay = true
 
+[node name="pagarbostaskai" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.031
+offset_top = 1000.0
+offset_right = -0.1521
+offset_bottom = 1165.91
+text = "+2 PAGARBOS TAŠKAI"
+label_settings = SubResource("LabelSettings_3ai7v")
+horizontal_alignment = 1
+script = ExtResource("20_8hqad")
+
+[connection signal="finished" from="Zoom/GridContainer/1" to="Zoom/GridContainer/1" method="_on_finished"]
+[connection signal="finished" from="Zoom/GridContainer/2" to="Zoom/GridContainer/2" method="_on_finished"]
+[connection signal="finished" from="Zoom/GridContainer/3" to="Zoom/GridContainer/3" method="_on_finished"]
+[connection signal="finished" from="Zoom/GridContainer/4" to="Zoom/GridContainer/4" method="_on_finished"]
+[connection signal="finished" from="Zoom/GridContainer/5" to="Zoom/GridContainer/5" method="_on_finished"]
+[connection signal="finished" from="Zoom/GridContainer/6" to="Zoom/GridContainer/6" method="_on_finished"]
+[connection signal="finished" from="Zoom/GridContainer/7" to="Zoom/GridContainer/7" method="_on_finished"]
+[connection signal="finished" from="Zoom/GridContainer/8" to="Zoom/GridContainer/8" method="_on_finished"]
+[connection signal="finished" from="Zoom/GridContainer/9" to="Zoom/GridContainer/9" method="_on_finished"]
 [connection signal="pressed" from="choices/HBoxContainer/1" to="." method="first_choice"]
 [connection signal="pressed" from="choices/HBoxContainer/2" to="." method="second_choice"]
 [connection signal="pressed" from="choices/HBoxContainer/3" to="." method="third_choice"]
