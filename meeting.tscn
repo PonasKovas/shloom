@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dxxlks7igwv03" path="res://assets/background.png" id="1_7j8kd"]
 [ext_resource type="Texture2D" uid="uid://dg33mlr4exdfi" path="res://assets/zoom_meeting.png" id="2_0w4lm"]
+[ext_resource type="VideoStream" path="res://assets/videos/mokytoja/neutral.ogv" id="3_k51jr"]
 
 [node name="Meeting" type="Control"]
 layout_mode = 3
@@ -28,3 +29,14 @@ offset_bottom = 528.0
 texture = ExtResource("2_0w4lm")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="mokytoja" type="VideoStreamPlayer" parent="Zoom"]
+layout_mode = 1
+offset_left = 349.0
+offset_top = 16.0
+offset_right = 579.0
+offset_bottom = 147.0
+stream = ExtResource("3_k51jr")
+autoplay = true
+expand = true
+loop = true
