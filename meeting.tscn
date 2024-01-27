@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bevdcie86g5m0"]
+[gd_scene load_steps=19 format=3 uid="uid://bevdcie86g5m0"]
 
 [ext_resource type="Texture2D" uid="uid://dxxlks7igwv03" path="res://assets/background.png" id="1_7j8kd"]
+[ext_resource type="Script" path="res://meeting.gd" id="1_p0ohx"]
 [ext_resource type="Texture2D" uid="uid://dg33mlr4exdfi" path="res://assets/zoom_meeting.png" id="2_0w4lm"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokytoja/neutral.ogv" id="3_k51jr"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokytoja/tvarkosi.ogv" id="4_5isvd"]
@@ -15,6 +16,8 @@
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/3/neutral.ogv" id="10_buu6g"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/5/neutral.ogv" id="11_rnqfk"]
 [ext_resource type="VideoStream" path="res://assets/videos/mokiniai/4/neutral.ogv" id="12_ivpp6"]
+[ext_resource type="Texture2D" uid="uid://gfryrcr78pmr" path="res://assets/gradient.png" id="16_fsxkf"]
+[ext_resource type="AudioStream" uid="uid://cgr01movpi3yf" path="res://assets/audio/krapstosi_su_mic.mp3" id="18_4s00e"]
 
 [node name="Meeting" type="Control"]
 layout_mode = 3
@@ -23,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_p0ohx")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -227,3 +231,61 @@ stream = ExtResource("4_jx5gl")
 autoplay = true
 expand = true
 loop = true
+
+[node name="choices" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 640.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_fsxkf")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="choices"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 146.0
+offset_right = -2.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="1" type="Button" parent="choices/HBoxContainer"]
+layout_mode = 2
+text = "first"
+
+[node name="2" type="Button" parent="choices/HBoxContainer"]
+layout_mode = 2
+text = "second"
+
+[node name="3" type="Button" parent="choices/HBoxContainer"]
+layout_mode = 2
+text = "third"
+
+[node name="4" type="Button" parent="choices/HBoxContainer"]
+layout_mode = 2
+text = "fourth"
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+volume_db = -6.559
+
+[node name="timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_4s00e")
+autoplay = true
+
+[connection signal="pressed" from="choices/HBoxContainer/1" to="." method="first_choice"]
+[connection signal="pressed" from="choices/HBoxContainer/2" to="." method="second_choice"]
+[connection signal="pressed" from="choices/HBoxContainer/3" to="." method="third_choice"]
+[connection signal="pressed" from="choices/HBoxContainer/4" to="." method="fourth_choice"]
+[connection signal="finished" from="audio" to="." method="_on_audio_finished"]
+[connection signal="timeout" from="timer" to="." method="time_out"]
