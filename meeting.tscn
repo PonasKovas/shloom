@@ -35,6 +35,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_p0ohx")
 
 [node name="background" type="TextureRect" parent="."]
@@ -254,26 +256,28 @@ script = ExtResource("8_dc3hs")
 
 [node name="choices" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 640.0
+offset_top = -8.0
 offset_bottom = 220.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 texture = ExtResource("16_fsxkf")
 expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="choices"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 146.0
+offset_top = -82.0
 offset_right = -2.0
 offset_bottom = -22.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 alignment = 1
 
 [node name="1" type="Button" parent="choices/HBoxContainer"]
@@ -305,12 +309,14 @@ autoplay = true
 
 [node name="pagarbostaskai" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.031
-offset_top = 1000.0
-offset_right = -0.1521
-offset_bottom = 1165.91
+anchor_bottom = 1.0
+offset_top = 639.0
+offset_bottom = 765.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "+2 PAGARBOS TAŠKAI"
 label_settings = SubResource("LabelSettings_3ai7v")
 horizontal_alignment = 1
