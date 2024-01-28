@@ -251,6 +251,7 @@ func second_choice():
 	disable_buttons(true)
 	if state == 0: # tyleti
 		state = 36
+		_on_audio_finished()
 	elif state == 5: # tylėti
 		state = 34
 		$timer.start(3)
@@ -366,8 +367,10 @@ func time_out():
 		set_activated("mokytoja")
 		state = 22
 	elif state == 25:
+		get_node("/root/Singleton").pagarbos_taskai = pagarbos_taskai
 		get_tree().change_scene_to_file("res://end.tscn")
 	elif state == 26:
+		get_node("/root/Singleton").pagarbos_taskai = pagarbos_taskai
 		get_tree().change_scene_to_file("res://kicked.tscn")
 	elif state == 34:
 		state = 6

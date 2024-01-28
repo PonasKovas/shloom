@@ -14,3 +14,7 @@ config/name="Shloom Meeting Online 2020"
 run/main_scene="res://main-menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Singleton="*res://singleton.gd"

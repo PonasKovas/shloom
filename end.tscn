@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://g0jdstc8d4ls"]
+[gd_scene load_steps=7 format=3 uid="uid://g0jdstc8d4ls"]
 
 [ext_resource type="Texture2D" uid="uid://dxxlks7igwv03" path="res://assets/background.png" id="1_dhn7l"]
 [ext_resource type="Texture2D" uid="uid://cjnp5rl2f78bv" path="res://assets/end.png" id="2_eqgk3"]
 [ext_resource type="AudioStream" uid="uid://b81chyi0do3b1" path="res://assets/audio/ismetimo_garsas.mp3" id="3_u8bj4"]
+[ext_resource type="FontFile" uid="uid://bo1phohtumt3q" path="res://assets/windows-xp-tahoma.otf" id="4_rrg6w"]
+[ext_resource type="Script" path="res://pabaiga_taskai.gd" id="5_u3m58"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7imyr"]
+font = ExtResource("4_rrg6w")
+font_size = 105
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -31,3 +39,16 @@ texture = ExtResource("2_eqgk3")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_u8bj4")
 autoplay = true
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 212.0
+grow_horizontal = 2
+text = "SURINKTA 999 PAGARBOS TAŠKŲ"
+label_settings = SubResource("LabelSettings_7imyr")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_u3m58")
